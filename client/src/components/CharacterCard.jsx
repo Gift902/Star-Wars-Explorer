@@ -13,9 +13,12 @@ const CharacterCard = ({ character, onClick }) => {
         <img
           src={imageUrl}
           alt={character.name || 'Unknown'}
+          referrerPolicy="no-referrer"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={(e) => {
-            e.target.src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+           onError={(e) => {
+              if (e.target.src !== 'https://starwars-visualguide.com/assets/img/bigplaceholder.jpg') {
+                e.target.src = 'https://starwars-visualguide.com/assets/img/bigplaceholder.jpg';
+              }
           }}
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">

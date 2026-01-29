@@ -2,7 +2,7 @@ import React from 'react';
 const CharacterDetail = ({ character, films = [], loadingFilms, onClose }) => {
   if (!character) return null;
   const id = character.url.split('/').filter(Boolean).pop();
-  const imageUrl = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+  const imageUrl = `https://images.weserv.nl/?url=https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/90 backdrop-blur-sm animate-in fade-in duration-300">
       <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#111] border border-white/20 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
@@ -17,14 +17,15 @@ const CharacterDetail = ({ character, films = [], loadingFilms, onClose }) => {
           <img 
             src={imageUrl} 
             alt={character.name}
+            referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
-            // Fix: cast e.target to HTMLImageElement to correctly access the src property in TypeScript
             onError={(e) => {
-              (e.target).src = 'https://starwars-visualguide.com/assets/img/placeholder.jpg';
+              if (e.target.src !== 'https://placehold.co/400x600/111/ffe81f?text=No+Image') {
+                e.target.src = 'https://placehold.co/400x600/111/ffe81f?text=No+Image';
+              }
             }}
           />
         </div>
-
         <div className="w-full md:w-3/5 p-6 md:p-10 overflow-y-auto">
           <div className="mb-8">
             <span className="text-star-wars-yellow text-xs font-bold uppercase tracking-widest bg-star-wars-yellow/10 px-3 py-1 rounded-full mb-3 inline-block">
