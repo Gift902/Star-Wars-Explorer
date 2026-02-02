@@ -19,15 +19,12 @@ const CharacterDetailContainer = ({ character, onClose }) => {
           setLoading(false);
         }
       };
-
       fetchFilms();
     } else {
       setFilms([]);
     }
   }, [character]);
-
   if (!character) return null;
-
   return (
     <CharacterDetail 
       character={character} 
@@ -37,5 +34,4 @@ const CharacterDetailContainer = ({ character, onClose }) => {
     />
   );
 };
-
 export default CharacterDetailContainer;

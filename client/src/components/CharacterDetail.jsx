@@ -12,7 +12,6 @@ const CharacterDetail = ({ character, films = [], loadingFilms, onClose }) => {
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-
         <div className="w-full md:w-2/5 h-64 md:h-auto overflow-hidden bg-zinc-900 border-b md:border-b-0 md:border-r border-white/10">
           <img 
             src={imageUrl} 
@@ -36,7 +35,6 @@ const CharacterDetail = ({ character, films = [], loadingFilms, onClose }) => {
             </h2>
             <div className="w-20 h-1 bg-star-wars-yellow rounded-full"></div>
           </div>
-
           <div className="grid grid-cols-2 gap-6 mb-8">
             <div>
               <p className="text-gray-500 text-xs uppercase tracking-widest mb-1">Height</p>
@@ -55,7 +53,6 @@ const CharacterDetail = ({ character, films = [], loadingFilms, onClose }) => {
               <p className="text-xl font-medium text-gray-200">{character.birth_year}</p>
             </div>
           </div>
-
           <div className="border-t border-white/10 pt-6">
             <h4 className="oswald text-xl uppercase tracking-wider mb-4 text-white">Appearances</h4>
             {loadingFilms ? (
@@ -82,5 +79,4 @@ const CharacterDetail = ({ character, films = [], loadingFilms, onClose }) => {
     </div>
   );
 };
-
 export default CharacterDetail;
